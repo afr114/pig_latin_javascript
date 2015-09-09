@@ -10,5 +10,16 @@ var vowelCheck = function(word) {
       return false;
     }
   }
+};
 
+var vowelWordAdder = function(word) {
+  var originalWord = word.split();
+  var newWord = originalWord.slice();
+
+  if (vowelCheck(word)) {
+    newWord.push("ay");
+  } else {
+    return false;
+  }
+  return newWord.join("");
 };
