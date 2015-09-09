@@ -43,7 +43,7 @@ var firstVowel = function(word) {
 };
 
 
-var pigLatin = function(word) {
+var pigLatinWord = function(word) {
   var vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
   var ogWord = word.split("");
   var pigWord = ogWord.slice();
@@ -56,3 +56,27 @@ var pigLatin = function(word) {
     return pigWord.join("") + (firstLetters.join("") + "ay");
   }
 };
+
+var pigLatin = function(phrase) {
+  var newPhrase = [];
+  var splitPhrase = phrase.split(" ");
+
+  splitPhrase.forEach(function(word) {
+    newPhrase.push(pigLatinWord(word));
+  })
+  return newPhrase.join(" ");
+};
+
+
+
+
+$(document).ready(function() {
+  $("form#pig-latin").submit(function(event) {
+    var phrase = $("input#phrase").val();
+    var result = pigLatin(phrase);
+
+    $("#pig-latin-phrase").text(result);
+    $("#result").show();
+    event.preventDefault();
+  });
+});
