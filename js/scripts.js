@@ -12,6 +12,7 @@ var vowelCheck = function(word) {
   }
 };
 
+
 var vowelWordAdder = function(word) {
   var originalWord = word.split();
   var newWord = originalWord.slice();
@@ -25,15 +26,33 @@ var vowelWordAdder = function(word) {
   return newWord.join("");
 };
 
-var pigLatin = function(word) {
+
+var firstVowel = function(word) {
+  var vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
   var ogWord = word.split("");
   var pigWord = ogWord.slice();
+  var firstVowel = 0;
+
+  for (var j = 0; j < pigWord.length; j++) {
+    for (var k = 0; k < vowels.length; k++) {
+      if (vowels[k] === pigWord[j]) {
+        return firstVowel = pigWord.indexOf(vowels[k]);
+      }
+    }
+  }
+};
+
+
+var pigLatin = function(word) {
+  var vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
+  var ogWord = word.split("");
+  var pigWord = ogWord.slice();
+  var firstVowelPosition = (firstVowel(word));
 
   if (vowelCheck(word)) {
     vowelWordAdder(word);
   } else {
-    var firstLetter = pigWord.shift();
-    pigWord.push(firstLetter + "ay");
+    var firstLetters = pigWord.splice(0, firstVowelPosition);
+    return pigWord.join("") + (firstLetters.join("") + "ay");
   }
-  return pigWord.join("");
 };

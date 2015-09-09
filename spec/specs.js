@@ -10,8 +10,15 @@ describe('vowelWordAdder', function() {
   });
 });
 
+
+
+
 describe("pigLatin", function() {
   it('translates word to pig latin with one consonant', function() {
-    expect(pigLatin("water")).to.equal("aterway");
+    expect(pigLatin("yellow")).to.equal("ellowyay");
+  });
+
+  it('translates word to pig latin with prefixes containing two or more non-vowel letters', function() {
+    expect(pigLatin("classwork")).to.equal("assworkclay");
   });
 });
