@@ -9,3 +9,9 @@ describe('vowelWordAdder', function() {
     expect(vowelWordAdder("andrew")).to.equal("andreway");
   });
 });
+
+describe("pigLatin", function() {
+  it('translates word to pig latin with one consonant', function() {
+    expect(pigLatin("water")).to.equal("aterway");
+  });
+});

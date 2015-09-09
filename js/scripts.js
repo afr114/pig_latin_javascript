@@ -21,5 +21,19 @@ var vowelWordAdder = function(word) {
   } else {
     return false;
   }
+
   return newWord.join("");
+};
+
+var pigLatin = function(word) {
+  var ogWord = word.split("");
+  var pigWord = ogWord.slice();
+
+  if (vowelCheck(word)) {
+    vowelWordAdder(word);
+  } else {
+    var firstLetter = pigWord.shift();
+    pigWord.push(firstLetter + "ay");
+  }
+  return pigWord.join("");
 };
